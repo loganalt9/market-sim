@@ -30,11 +30,12 @@ void delete_order(price_level* level, int id);
 price_level* create_price_level(double price);
 void delete_price_level(price_level* pl);
 void add_order_price_level(price_level* pl, order* o);
+order* remove_order_price_level(price_level* pl);
 
 //heaps
 heap* create_heap(int cap, int is_max);
 void delete_heap(heap* h);
-price_level* heap_pop(heap* h);
+price_level* heap_peek(heap* h);
 void heap_insert(heap* h, price_level* p);
 
 #endif

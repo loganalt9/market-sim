@@ -30,3 +30,14 @@ void add_order_price_level(price_level* pl, order* o) {
         pl->tail = o;
     }
 }
+
+order* remove_order_price_level(price_level* pl) {
+    if (pl->head) {
+        order* ret = pl->head;
+        pl->head = ret->next;
+        ret->next = NULL;
+        return ret;
+    } else {
+        return NULL;
+    }
+}
