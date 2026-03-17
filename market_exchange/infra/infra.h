@@ -22,6 +22,11 @@ typedef struct heap {
     price_cmp cmp;
 } heap;
 
+typedef struct orderbook {
+    heap* bids; // max
+    heap* asks; // min
+} orderbook;
+
 //orders
 order* create_order(int id, int size);
 void delete_order(price_level* level, int id);
@@ -37,5 +42,9 @@ heap* create_heap(int cap, int is_max);
 void delete_heap(heap* h);
 price_level* heap_peek(heap* h);
 void heap_insert(heap* h, price_level* p);
+price_level* heap_pop(heap* h);
 
+//orderbook
+orderbook* create_orderbook(int heap_cap);
+void delete_orderbook(orderbook* ob);
 #endif

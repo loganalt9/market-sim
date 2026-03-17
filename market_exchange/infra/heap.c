@@ -78,7 +78,7 @@ price_level* heap_pop(heap* h) {
     return best;
 }
 
-price_level* heap_peak(heap* h) {
+price_level* heap_peek(heap* h) {
     if (h->size == 0) return NULL;
 
     return h->data[0];
