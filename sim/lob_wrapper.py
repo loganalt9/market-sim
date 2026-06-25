@@ -20,3 +20,15 @@ lib.submit_market_order.restype = ExecutionResult
 
 lib.submit_limit_order.argtypes = [POINTER(OrderBook), c_double, c_int, c_int]
 lib.submit_limit_order.restype = ExecutionResult
+
+lib.get_best_bid.argtypes = [POINTER(OrderBook)]
+lib.get_best_bid.restype = c_double
+
+lib.get_best_ask.argtypes = [POINTER(OrderBook)]
+lib.get_best_ask.restype = c_double
+
+lib.get_best_bid_size.argtypes = [POINTER(OrderBook)]
+lib.get_best_bid_size.restype = c_int
+
+lib.get_best_ask_size.argtypes = [POINTER(OrderBook)]
+lib.get_best_ask_size.restype = c_int

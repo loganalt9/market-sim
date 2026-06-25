@@ -132,3 +132,23 @@ double get_best_ask(orderbook* ob) {
     price_level* pl = heap_peek(ob->asks);
     return pl ? pl->price : 0;
 }
+
+static int level_total_size(price_level* pl) {
+    int total = 0;
+    order* o = pl->head;
+    while (o) {
+        total += o->size;
+        o = o->next;
+    }
+    return total;
+}
+
+int get_best_bid_size(orderbook* ob) {
+    price_level* pl = heap_peek(ob->bids);
+    return pl ? level_total_size(pl) : 0;
+}
+
+int get_best_ask_size(orderbook* ob) {
+    price_level* pl = heap_peek(ob->asks);
+    return pl ? level_total_size(pl) : 0;
+}

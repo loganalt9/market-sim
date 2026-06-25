@@ -20,7 +20,7 @@ class DQN(nn.Module):
 
 class Agent:
     def __init__(self):
-        self.model = DQN(1, 3)
+        self.model = DQN(6, 3)
         self.optimizer = optim.Adam(self.model.parameters(), lr=1e-3)
         self.gamma = 0.99
 
